@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     },
     NavBarTitle: {
         flexGrow: '1',
-        fontSize: '2.4rem',
         fontFamily: "League Spartan",
         letterSpacing: '-0.4', /* Not working yet */
     },
@@ -35,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         // alignItems: 'center',
         color: 'white',
         fontFamily: "League Spartan",
-        fontSize: '3rem'
+        fontSize: '2rem'
     },
     pointsOfInterest: {
         color: 'white',
@@ -48,7 +47,7 @@ export default function NavBar() {
     return(
     <div className={classes.root}>
 
-        <AppBar className={classes.AppBar} elevation='0'>
+        <AppBar className={classes.AppBar} >
             <Toolbar className={classes.NavBarWrapper}>
                 <h1 className={classes.NavBarTitle}>asset labs.</h1>
                 <IconButton className={classes.icons}>
@@ -72,19 +71,18 @@ export default function NavBar() {
             </h1>
         </div>  */}
 
-      <div style={{ width: '35%', height: '14%' }}>
-        <Box display="flex" justifyContent="left" m={1} p={1} >
+      <div style={{ width: '30%', height: '11.5%' }}>
+        <Box display="flex" justifyContent="center" m={1} p={1} >
             <Box className={classes.manageYours} p={1} >
                 <h1>manage your</h1>
             </Box>
           </Box>
       </div>
       
-      <div style={{ width: '18%', height: '127%'}}>
+      <div style={{ width: '20%' }}>
          <Box display="flex" justifyContent="center" m={1} p={1} >
             <Box p={1} className={classes.pointsOfInterest}>
-                <h1>
-                    <br /> gear.
+                <h1><br /> gear.
                     <br /> machinery.
                    <br /> assets.
                    <br /> vehicles.
