@@ -3,6 +3,7 @@ import React from 'react';
 import PageTitle from '../components/PageTitle';
 import LoggedInName from '../components/LoggedInName';
 import CardUI from '../components/CardUI';
+import Dashboard from './Dashboard'
 
 const CardPage = () =>
 {
@@ -10,7 +11,7 @@ const CardPage = () =>
         <div>
             <PageTitle />
             <LoggedInName />
-            <CardUI />
+            <Dashboard/>
         </div>
     );
 }
