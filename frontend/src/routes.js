@@ -34,53 +34,46 @@ import Maps from "./views/Maps/Maps.js";
 import NotificationsPage from "./views/Notifications/Notifications.js";
 import UpgradeToPro from "./views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
-import RTLPage from "./views/RTLPage/RTLPage.js";
 
 const dashboardRoutes = [
   {
     path: "/dashboard",
     name: "Asset Labs",
-    rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: DashboardPage,
     layout: "/admin",
   },
   {
-    path: "/user",
+    path: "/user-profile",
     name: "User Profile",
-    rtlName: "ملف تعريفي للمستخدم",
     icon: Person,
     component: UserProfile,
     layout: "/admin",
   },
   {
-    path: "/table",
+    path: "/inventory-reports",
     name: "Reports",
-    rtlName: "قائمة الجدول",
     icon: "content_paste",
     component: TableList,
     layout: "/admin",
   },
   {
-    path: "/typography",
+    path: "/messages",
     name: "Messages",
-    rtlName: "طباعة",
     icon: LibraryBooks,
     component: Typography,
     layout: "/admin",
   },
-  {
-    path: "/icons",
-    name: "Invoices",
-    rtlName: "الرموز",
-    icon: BubbleChart,
-    component: Icons,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/icons",
+  //   name: "Invoices",
+  //   icon: BubbleChart,
+  //   component: Icons,
+  //   layout: "/admin",
+  // },
   // {
   //   path: "/maps",
   //   name: "Maps",
-  //   rtlName: "خرائط",
   //   icon: LocationOn,
   //   component: Maps,
   //   layout: "/admin",
@@ -88,23 +81,20 @@ const dashboardRoutes = [
   {
     path: "/notifications",
     name: "Notifications",
-    rtlName: "إخطارات",
     icon: Notifications,
     component: NotificationsPage,
     layout: "/admin",
   },
   {
-    path: "/rtl-page",
+    path: "/asset-labs-support",
     name: "Asset Labs Support",
-    rtlName: "پشتیبانی از راست به چپ",
     icon: Language,
-    component: RTLPage,
-    layout: "/rtl",
+    component: NotificationsPage,
+    layout: "/admin",
   },
   {
     path: "/upgrade-to-pro",
-    name: "Need Help?",
-    rtlName: "التطور للاحترافية",
+    name: "Upgrade to Pro?",
     icon: Unarchive,
     component: UpgradeToPro,
     layout: "/admin",

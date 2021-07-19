@@ -41,6 +41,7 @@ import styles from "../../assets/jss/material-dashboard-react/views/dashboardSty
 
 const useStyles = makeStyles(styles);
 
+// this is where we will have to grab values from DB to put on dashboard
 export default function Dashboard() {
   const classes = useStyles();
   return (

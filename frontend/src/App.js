@@ -19,12 +19,10 @@ function App() {
         <LoginPage />
       </Route>
       
-     
       <Route path="/login" exact>
         <LoginPage2 />
       </Route>
-      <Route path="/admin" component={Admin} />
-          <Redirect from="/" to="/admin/dashboard" />
+      
       <Route path="/register" exact>
         <Register />
       </Route>
@@ -37,6 +35,8 @@ function App() {
       <Route path="/reset" exact>
         <Reset />
       </Route>
+      <Route path="/admin" component={Admin} />
+          <Redirect from="/" to="/admin/dashboard" />
       <Redirect to="/" />
     </Switch>  
   </Router>
