@@ -73,7 +73,7 @@ function Register()
 
     return(
       <div id="loginDiv">
-        <span id="inner-title">OR register</span><br />
+        <span id="inner-title">Register</span><br />
         <input type="text" id="companyName" placeholder="CompName" ref={(c) => companyName = c}  /><br />
         <input type="text" id="firstName" placeholder="Firstname" ref={(c) => firstName = c}  /><br />
         <input type="text" id="lastName" placeholder="Lastname" ref={(c) => lastName = c}  /><br />
@@ -82,7 +82,7 @@ function Register()
         <input type="text" id="phone" placeholder="Phone" ref={(c) => phone = c}  /><br />
         <input type="password" id="passwordRegister" placeholder="Password" ref={(c) => passwordRegister = c} /><br />
         <input type="password" id="passwordCheck" placeholder="Password" ref={(c) => passwordCheck = c} /><br />
-        <input type="submit" id="loginButton" class="buttons" value = "Do It"
+        <input type="submit" id="loginButton" className="buttons" value = "Do It"
           onClick={doRegister} />
         <span id="loginResult">{message}</span>
      </div>

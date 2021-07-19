@@ -14,26 +14,26 @@ import CardPage from './pages/CardPage';
 
 import "./assets/css/material-dashboard-react.css";
 
-ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-     <Route path="/" exact>
-      <LoginPage />
-      </Route>
-      <Route path="/admin" component={Admin} />
-   
-      <Redirect from="/" to="/admin/dashboard" />
-    </Switch>
-  </BrowserRouter>,
-  document.getElementById("root")
-);
-
 // ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
+//   <BrowserRouter>
+//     <Switch>
+//      <Route path="/" exact>
+//       <LoginPage />
+//       </Route>
+//       <Route path="/admin" component={Admin} />
+   
+//       <Redirect from="/" to="/admin/dashboard" />
+//     </Switch>
+//   </BrowserRouter>,
+//   document.getElementById("root")
 // );
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
