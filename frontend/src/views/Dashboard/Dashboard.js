@@ -94,7 +94,7 @@ export default function Dashboard() {
             <CardFooter stats>
               <div className={classes.stats}>
                 <LocalOffer />
-                Tracked through S/N
+                Tracked through matthew
               </div>
             </CardFooter>
           </Card>

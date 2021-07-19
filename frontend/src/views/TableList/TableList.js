@@ -8,6 +8,8 @@ import Table from "../../components/Table/Table.js";
 import Card from "../../components/Card/Card.js";
 import CardHeader from "../../components/Card/CardHeader.js";
 import CardBody from "../../components/Card/CardBody.js";
+import CardUI from '../../components/CardUI';
+
 
 const styles = {
   cardCategoryWhite: {
@@ -54,7 +56,8 @@ export default function TableList() {
             </p>
           </CardHeader>
           <CardBody>
-            <Table
+          <CardUI/>
+            {/* <Table
               tableHeaderColor="primary"
               tableHead={["Name", "Country", "City", "Salary"]}
               tableData={[
@@ -65,7 +68,8 @@ export default function TableList() {
                 ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
                 ["Mason Porter", "Chile", "Gloucester", "$78,615"],
               ]}
-            />
+            /> */}
+
           </CardBody>
         </Card>
       </GridItem>

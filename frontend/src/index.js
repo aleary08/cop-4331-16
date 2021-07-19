@@ -8,15 +8,20 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 
 // core components
 import Admin from "./layouts/Admin.js";
-import RTL from "./layouts/RTL.js";
+//import RTL from "./layouts/RTL.js";
+import LoginPage from './pages/LoginPage';
+import CardPage from './pages/CardPage';
 
 import "./assets/css/material-dashboard-react.css";
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
+     <Route path="/" exact>
+      <LoginPage />
+      </Route>
       <Route path="/admin" component={Admin} />
-      <Route path="/rtl" component={RTL} />
+   
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
   </BrowserRouter>,

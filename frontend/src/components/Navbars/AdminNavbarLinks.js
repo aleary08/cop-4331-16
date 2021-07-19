@@ -47,6 +47,22 @@ export default function AdminNavbarLinks() {
   const handleCloseProfile = () => {
     setOpenProfile(null);
   };
+  const doLogout = event => 
+  {
+    event.preventDefault();
+
+      window.location.href = '/';
+
+  };   
+
+  const doCard = event => 
+  {
+    event.preventDefault();
+
+      window.location.href = '../CardUI';
+
+  };   
+
   return (
     <div>
       <div className={classes.searchWrapper}>
@@ -200,14 +216,14 @@ export default function AdminNavbarLinks() {
                       Profile
                     </MenuItem>
                     <MenuItem
-                      onClick={handleCloseProfile}
+                      onClick={doCard}
                       className={classes.dropdownItem}
                     >
                       Settings
                     </MenuItem>
                     <Divider light />
                     <MenuItem
-                      onClick={handleCloseProfile}
+                      onClick={doLogout}
                       className={classes.dropdownItem}
                     >
                       Logout
