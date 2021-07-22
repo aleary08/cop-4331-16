@@ -5,7 +5,7 @@ const crypto = require ('crypto');
 
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-// const bcrypt = require('bcrypt');
+
 //Create Schema
 const UserSchema = new Schema({
   userId: {
@@ -36,8 +36,6 @@ const UserSchema = new Schema({
     type:Date,
     required :false
   }
-
-  
   
 });
 

@@ -33,35 +33,36 @@ import Icons from "./views/Icons/Icons.js";
 import Maps from "./views/Maps/Maps.js";
 import NotificationsPage from "./views/Notifications/Notifications.js";
 import UpgradeToPro from "./views/UpgradeToPro/UpgradeToPro.js";
+import CardUI from "./components/CardUI";
 // core components/views for RTL layout
 
 const dashboardRoutes = [
   {
     path: "/dashboard",
-    name: "Asset Labs",
+    //name: "Asset Labs",
     icon: Dashboard,
     component: DashboardPage,
     layout: "/admin",
   },
   {
     path: "/user-profile",
-    name: "User Profile",
+    //name: "User Profile",
     icon: Person,
     component: UserProfile,
     layout: "/admin",
   },
-  {
-    path: "/inventory-reports",
-    name: "Reports",
-    icon: "content_paste",
-    component: TableList,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/inventory-reports",
+  //   //name: "Reports",
+  //   icon: "content_paste",
+  //   component: TableList,
+  //   layout: "/admin",
+  // },
   {
     path: "/messages",
-    name: "Messages",
+    //name: "Messages",
     icon: LibraryBooks,
-    component: Typography,
+    component: CardUI,
     layout: "/admin",
   },
   // {
@@ -80,21 +81,21 @@ const dashboardRoutes = [
   // },
   {
     path: "/notifications",
-    name: "Notifications",
+    //name: "Notifications",
     icon: Notifications,
     component: NotificationsPage,
     layout: "/admin",
   },
-  {
-    path: "/asset-labs-support",
-    name: "Asset Labs Support",
-    icon: Language,
-    component: NotificationsPage,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/asset-labs-support",
+  //   //name: "Asset Labs Support",
+  //   icon: Language,
+  //   component: NotificationsPage,
+  //   layout: "/admin",
+  // },
   {
     path: "/upgrade-to-pro",
-    name: "Upgrade to Pro?",
+    //name: "Upgrade to Pro?",
     icon: Unarchive,
     component: UpgradeToPro,
     layout: "/admin",

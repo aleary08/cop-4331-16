@@ -28,6 +28,8 @@ import CardHeader from "../../components/Card/CardHeader.js";
 import CardIcon from "../../components/Card/CardIcon.js";
 import CardBody from "../../components/Card/CardBody.js";
 import CardFooter from "../../components/Card/CardFooter.js";
+import CardUI from '../../components/CardUI';
+import Box from '@material-ui/core/Box';
 
 import { bugs, website, server } from "../../variables/general.js";
 
@@ -46,18 +48,38 @@ export default function Dashboard() {
   const classes = useStyles();
   return (
     <div>
+      <h4 className={classes.cardTitle}>CompanyName's Dashboard</h4>
+      <p className={classes.cardCategory}>Asset Labs Powered Inventory System</p>
       <GridContainer>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={8}>
+          
           <Card>
             <CardHeader color="warning" stats icon>
-              <CardIcon color="warning">
+              {/* <CardIcon color="warning">
                 <Icon>Total Assets</Icon>
-              </CardIcon>
-              <p className={classes.cardCategory}>Used Space</p>
+              </CardIcon> */}
+              {/* <p className={classes.cardLeft}>Used Space</p>
               <h3 className={classes.cardTitle}>
                 250 <small>Vehicles</small>
-              </h3>
+              </h3> */}
+              {/* <CardUI/>  */}
+           
+
             </CardHeader>
+            <CardBody><Table
+                tableHeaderColor="black"
+                tableHead={["Filter", "Name", "Brand", "Model", "Category", "S/N", "Location", "Replacement", "Stock"]}
+                tableData={[
+                  ["10:21", "Acura ILX", "No", "No", "Car", "12345", "Orlando", "40", "10"],
+                  ["09:12", "Toyota Camry", "No", "No", "Car", "12345", "Orlando", "40", "10"],
+                  ["13:21", "Dodge Charger", "No", "No", "Car", "12345", "Orlando", "40", "10"],
+                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10"],
+                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10"],
+                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10"],
+                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10"],
+
+                ]}
+              /></CardBody>
             <CardFooter stats>
             <div className={classes.stats}>
                 <Update />
@@ -66,24 +88,24 @@ export default function Dashboard() {
             </CardFooter>
           </Card>
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        <GridItem xs={12} sm={6} md={4}>
           <Card>
             <CardHeader color="success" stats icon>
               <CardIcon color="success">
-                <Store />
+                <Accessibility />
               </CardIcon>
-              <p className={classes.cardCategory}>Items In</p>
+              <p className={classes.cardCategory}>Total Assets</p>
               <h3 className={classes.cardTitle}>175</h3>
             </CardHeader>
             <CardFooter stats>
               <div className={classes.stats}>
                 <DateRange />
-                Last 24 Hours
+                Just Updated
               </div>
             </CardFooter>
           </Card>
-        </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+
+          <Box  pt={3}>
           <Card>
             <CardHeader color="danger" stats icon>
               <CardIcon color="danger">
@@ -99,8 +121,58 @@ export default function Dashboard() {
               </div>
             </CardFooter>
           </Card>
+          </Box>
+
+          {/* <CustomTabs
+            title="Tasks:"
+            headerColor="primary"
+            tabs={[
+              {
+                tabName: "Outstanding",
+                tabIcon: BugReport,
+                tabContent: (
+                  <Tasks
+                    checkedIndexes={[0, 3]}
+                    tasksIndexes={[0, 1, 2, 3]}
+                    tasks={bugs}
+                  />
+                ),
+              },
+              {
+                tabName: "Notes",
+                tabIcon: Code,
+                tabContent: (
+                  <Tasks
+                    checkedIndexes={[0]}
+                    tasksIndexes={[0, 1]}
+                    tasks={website}
+                  />
+                ),
+              },
+              
+            ]}
+          /> */}
+          
         </GridItem>
-        <GridItem xs={12} sm={6} md={3}>
+        {/* <GridItem  xs={12} sm={6} md={3} >
+          <Card>
+            <CardHeader color="danger" stats icon>
+              <CardIcon color="danger">
+                <Icon>Items Out</Icon>
+              </CardIcon>
+              <p className={classes.cardCategory}>Total</p>
+              <h3 className={classes.cardTitle}>75</h3>
+            </CardHeader>
+            <CardFooter stats>
+              <div className={classes.stats}>
+                <LocalOffer />
+                Tracked through matthew
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem> */}
+        
+        {/* <GridItem xs={12} sm={6} md={3}>
           <Card>
             <CardHeader color="info" stats icon>
               <CardIcon color="info">
@@ -116,10 +188,10 @@ export default function Dashboard() {
               </div>
             </CardFooter>
           </Card>
-        </GridItem>
+        </GridItem> */}
       </GridContainer>
       <GridContainer>
-        <GridItem xs={12} sm={12} md={4}>
+        {/* <GridItem xs={12} sm={12} md={4}>
           <Card chart>
             <CardHeader color="success">
               <ChartistGraph
@@ -168,8 +240,8 @@ export default function Dashboard() {
               </div>
             </CardFooter>
           </Card>
-        </GridItem>
-        <GridItem xs={12} sm={12} md={4}>
+        </GridItem> */}
+        {/* <GridItem xs={12} sm={12} md={4}>
           <Card chart>
             <CardHeader color="danger">
               <ChartistGraph
@@ -190,7 +262,7 @@ export default function Dashboard() {
               </div>
             </CardFooter>
           </Card>
-        </GridItem>
+        </GridItem> */}
       </GridContainer>
       <GridContainer>
         <GridItem xs={12} sm={12} md={6}>
@@ -224,7 +296,7 @@ export default function Dashboard() {
             ]}
           />
         </GridItem>
-        <GridItem xs={12} sm={12} md={6}>
+        <GridItem xs={2} sm={12} md={6}>
           <Card>
             <CardHeader color="warning">
               <h4 className={classes.cardTitleWhite}>Report States</h4>
@@ -241,8 +313,13 @@ export default function Dashboard() {
                   ["09:12", "Toyota Camry", "No", "No"],
                   ["13:21", "Dodge Charger", "No", "No"],
                   ["14:20", "Honda Civic", "No", "No"],
+                  ["14:20", "Honda Civic", "No", "No"],
+                  ["14:20", "Honda Civic", "No", "No"],
+                  ["14:20", "Honda Civic", "No", "No"],
+
                 ]}
               />
+              <CardUI/> 
             </CardBody>
           </Card>
         </GridItem>

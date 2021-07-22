@@ -2,15 +2,20 @@ import {
   defaultFont,
   dangerColor,
   whiteColor,
+  grayColor,
+  blackColor,
+  topoImage,
 } from "../../material-dashboard-react.js";
 
 import dropdownStyle from "../dropdownStyle.js";
+import background from "../../../img/Topo.jpg";
 
 const headerLinksStyle = (theme) => ({
   ...dropdownStyle(theme),
   search: {
     "& > div": {
       marginTop: "0",
+      marginLeft: "30px"
     },
     [theme.breakpoints.down("sm")]: {
       margin: "10px 15px !important",
@@ -21,7 +26,7 @@ const headerLinksStyle = (theme) => ({
       width: "60%",
       marginTop: "40px",
       "& input": {
-        color: whiteColor,
+        color: grayColor[6],
       },
     },
   },
@@ -76,7 +81,7 @@ const headerLinksStyle = (theme) => ({
     [theme.breakpoints.up("md")]: {
       position: "absolute",
       top: "2px",
-      border: "1px solid " + whiteColor,
+      border: "1px solid " + grayColor[6],
       right: "4px",
       fontSize: "9px",
       background: dangerColor[0],
@@ -100,7 +105,20 @@ const headerLinksStyle = (theme) => ({
       width: "100%",
     },
     display: "inline-block",
+
   },
+  
+  AppBar: {
+    //minHeight: '100vh',
+    backgroundImage: `url(${background})`,
+    //background: 'none',
+    backgroundRepeat: 'no-repeat',
+    backgroundSize: 'cover',
+    
+    
+   
+  },
+
   searchWrapper: {
     [theme.breakpoints.down("sm")]: {
       width: "-webkit-fill-available",

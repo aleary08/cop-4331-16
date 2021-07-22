@@ -3,6 +3,7 @@ import {
   whiteColor,
   grayColor,
   hexToRgb,
+  blackColor,
 } from "../../material-dashboard-react.js";
 
 const dashboardStyle = {
@@ -14,14 +15,14 @@ const dashboardStyle = {
     height: "16px",
   },
   stats: {
-    color: grayColor[0],
+    color: grayColor[2],
     display: "inline-flex",
     fontSize: "12px",
     lineHeight: "22px",
     "& svg": {
       top: "4px",
       width: "16px",
-      height: "16px",
+      height: "6px",
       position: "relative",
       marginRight: "3px",
       marginLeft: "3px",
@@ -35,12 +36,17 @@ const dashboardStyle = {
     },
   },
   cardCategory: {
-    color: grayColor[0],
+    color: grayColor[2],
     margin: "0",
     fontSize: "14px",
     marginTop: "0",
     paddingTop: "10px",
     marginBottom: "0",
+  },
+  cardLeft: {
+    color: grayColor[2],
+    paddingRight: "650px"
+    
   },
   cardCategoryWhite: {
     color: "rgba(" + hexToRgb(whiteColor) + ",.62)",
@@ -55,10 +61,10 @@ const dashboardStyle = {
     minHeight: "auto",
     fontWeight: "300",
     fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-    marginBottom: "3px",
+    marginBottom: "-10px",
     textDecoration: "none",
     "& small": {
-      color: grayColor[1],
+      color: grayColor[2],
       fontWeight: "400",
       lineHeight: "1",
     },

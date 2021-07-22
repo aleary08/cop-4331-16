@@ -20,6 +20,7 @@ import CustomInput from "../CustomInput/CustomInput.js";
 import Button from "../CustomButtons/Button.js";
 
 import styles from "../../assets/jss/material-dashboard-react/components/headerLinksStyle.js";
+import Box from '@material-ui/core/Box';
 
 const useStyles = makeStyles(styles);
 
@@ -63,6 +64,14 @@ export default function AdminNavbarLinks() {
 
   };   
 
+  const goProfile = event =>
+  {
+    event.preventDefault();
+
+      window.location.href = '../../views/UserProfile/UserProfile'
+      ;
+  }
+
   return (
     <div>
       <div className={classes.searchWrapper}>
@@ -71,7 +80,7 @@ export default function AdminNavbarLinks() {
             className: classes.margin + " " + classes.search,
           }}
           inputProps={{
-            placeholder: "Search",
+            placeholder: "Search ...",
             inputProps: {
               "aria-label": "Search",
             },
@@ -183,6 +192,7 @@ export default function AdminNavbarLinks() {
         >
           <Person className={classes.icons} />
           <Hidden mdUp implementation="css">
+            
             <p className={classes.linkText}>Profile</p>
           </Hidden>
         </Button>
@@ -210,7 +220,7 @@ export default function AdminNavbarLinks() {
                 <ClickAwayListener onClickAway={handleCloseProfile}>
                   <MenuList role="menu">
                     <MenuItem
-                      onClick={handleCloseProfile}
+                      onClick={goProfile}
                       className={classes.dropdownItem}
                     >
                       Profile

@@ -60,9 +60,11 @@ const sidebarStyle = (theme) => ({
       right: "auto !important",
     },
   },
+
+  // States Group 16
   logo: {
     position: "relative",
-    padding: "15px 15px",
+    padding: "10px 15px",
     zIndex: "4",
     "&:after": {
       content: '""',
@@ -75,6 +77,7 @@ const sidebarStyle = (theme) => ({
       backgroundColor: "rgba(" + hexToRgb(grayColor[6]) + ", 0.3)",
     },
   },
+  
   logoLink: {
     ...defaultFont,
     textTransform: "uppercase",
@@ -85,7 +88,7 @@ const sidebarStyle = (theme) => ({
     fontWeight: "400",
     lineHeight: "30px",
     textDecoration: "none",
-    backgroundColor: "transparent",
+    //backgroundColor: "#808080",
     "&,&:hover": {
       color: whiteColor,
     },
@@ -101,12 +104,14 @@ const sidebarStyle = (theme) => ({
     marginRight: "15px",
   },
   img: {
-    width: "35px",
+    width: "20px",
     top: "22px",
     position: "absolute",
     verticalAlign: "middle",
     border: "0",
   },
+
+  // Actual side
   background: {
     position: "absolute",
     zIndex: "1",
@@ -117,20 +122,21 @@ const sidebarStyle = (theme) => ({
     left: "0",
     backgroundSize: "cover",
     backgroundPosition: "center center",
-    "&:after": {
-      position: "absolute",
-      zIndex: "3",
-      width: "100%",
-      height: "100%",
-      content: '""',
-      display: "block",
-      background: blackColor,
-      opacity: ".8",
-    },
+    // "&:after": {
+    //   position: "absolute",
+    //   zIndex: "3",
+    //   width: "0%",
+    //   height: "100%",
+    //   content: '""',
+    //   display: "block",
+    //   background: blackColor,
+    //   opacity: ".8",
+    // },
   },
   list: {
     marginTop: "20px",
     paddingLeft: "0",
+    paddingRight: "70px",
     paddingTop: "0",
     paddingBottom: "0",
     marginBottom: "0",
@@ -148,11 +154,11 @@ const sidebarStyle = (theme) => ({
   itemLink: {
     width: "auto",
     transition: "all 300ms linear",
-    margin: "10px 15px 0",
+    margin: "10px 5px 0",
     borderRadius: "3px",
     position: "relative",
     display: "block",
-    padding: "10px 15px",
+    padding: "25px 15px",
     backgroundColor: "transparent",
     ...defaultFont,
   },
@@ -285,7 +291,8 @@ const sidebarStyle = (theme) => ({
     position: "relative",
     height: "calc(100vh - 75px)",
     overflow: "auto",
-    width: "260px",
+    // was 260 width
+    width: "70px",
     zIndex: "4",
     overflowScrolling: "touch",
   },

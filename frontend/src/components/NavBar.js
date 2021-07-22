@@ -77,18 +77,18 @@ export default function NavBar() {
      
         <Box display="flex" justifyContent="center" m={1} p={1} >
             <Box ml = "-80%" pt= "146px" letterSpacing="-4px" className={classes.manageYours} p={1} >
-                <h1>manage your</h1>
+                <p>manage your</p>
             </Box>
           </Box>
      
          <Box  display="flex" justifyContent="center" m={1} p={1} >
             <Box p={1} ml = "-80%" pr = "120px" letterSpacing= "-4x" className={classes.pointsOfInterest}>
-                <h1><br /> gear.
+                <p><br /> gear.
                     <br /> machinery.
                    <br /> assets.
                    <br /> vehicles.
                    <br /> furniture.
-                </h1>  
+                </p>  
             </Box> 
          </Box>
       

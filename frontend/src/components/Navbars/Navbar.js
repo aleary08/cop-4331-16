@@ -29,7 +29,8 @@ export default function Header(props) {
     [" " + classes[color]]: color,
   });
   return (
-    <AppBar className={classes.appBar + appBarClasses}>
+    // try to change color here
+    <AppBar className={classes.AppBar }>
       <Toolbar className={classes.container}>
         <div className={classes.flex}>
           {/* Here we create navbar brand, based on route name */}
