@@ -8,6 +8,7 @@ import LoginPage2 from './pages/LoginPage2';
 import Register from './pages/RegisterPage';
 import ForgotPassword from './pages/ForgotPasswordPage';
 import Verify from './pages/VerifyPage';
+import VerifyEmail from './pages/VerifyEmailPage';
 import Reset from './pages/ResetPage';
 import Admin from "./layouts/Admin.js";
 
@@ -31,6 +32,9 @@ function App() {
       </Route>
       <Route path="/verify" exact>
         <Verify />
+      </Route>
+      <Route path="/verifyEmail" exact>
+        <VerifyEmail />
       </Route>
       <Route path="/reset" exact>
         <Reset />
