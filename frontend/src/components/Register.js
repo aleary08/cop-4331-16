@@ -17,14 +17,15 @@ function Register()
     var passwordRegister;
     var passwordCheck;
     var phone;
-  var Code=0;
+    var Code=0;
   
     const [message,setMessage] = useState('');
- const doVerify = async event => {
+     const doVerify = async event => {
     var hash = md5( passwordRegister );
 //    const Code = Math.floor(Math.random()*90000+10000);
     
-    var sendCode = JSON.stringify({ Email:email.value});         
+    var sendCode = JSON.stringify({ Email:email.value});     
+    alert(sendCode);    
    
     var config = 
       {
@@ -61,6 +62,7 @@ function Register()
                 setMessage(error);
             }
             setMessage('User was added');
+            
             window.location.href = '/verifyEmail';
 
           
@@ -112,6 +114,7 @@ function Register()
          })
       
         //Generated 5-digit code 
+        
         if (flag === 0 ){
          const respone =  await  doVerify();
     } 

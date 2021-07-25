@@ -103,10 +103,13 @@ function CardUI()
     const addCard = async event => 
     {
 	    event.preventDefault();
+        
 
        var tok = storage.retrieveToken();
        var obj = {userId:userId,card:card.value,jwtToken:tok};
        var js = JSON.stringify(obj);
+
+       alert("UserId: "+localStorage.getItem('user_data'));
 
         var config = 
         {
