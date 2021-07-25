@@ -82,7 +82,7 @@ small {
 h1 {
   font-size: 3em;
   line-height: 1.15em;
-  font-family: "League Spartan";
+  font-family: 'Spartan', sans-serif;
 }
 
 h2 {

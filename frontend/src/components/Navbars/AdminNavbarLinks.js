@@ -21,6 +21,8 @@ import Button from "../CustomButtons/Button.js";
 
 import styles from "../../assets/jss/material-dashboard-react/components/headerLinksStyle.js";
 import Box from '@material-ui/core/Box';
+import GridItem from "../Grid/GridItem.js";
+import GridContainer from "../Grid/GridContainer.js";
 
 const useStyles = makeStyles(styles);
 
@@ -74,7 +76,13 @@ export default function AdminNavbarLinks() {
 
   return (
     <div>
-      <div className={classes.searchWrapper}>
+
+      <Box ml={-9} mb={-3} display= "inline-block">
+        <p className={classes.title}>asset labs</p> 
+      </Box>
+      
+      
+      {/* <div className={classes.searchWrapper}>
         <CustomInput
           formControlProps={{
             className: classes.margin + " " + classes.search,
@@ -89,8 +97,11 @@ export default function AdminNavbarLinks() {
         <Button color="white" aria-label="edit" justIcon round>
           <Search />
         </Button>
-      </div>
-      <Button
+      </div> */}
+
+      
+      <Box  alignContent="flex-end" display="inline-block">
+      {/* <Button 
         color={window.innerWidth > 959 ? "transparent" : "white"}
         justIcon={window.innerWidth > 959}
         simple={!(window.innerWidth > 959)}
@@ -179,7 +190,7 @@ export default function AdminNavbarLinks() {
             </Grow>
           )}
         </Poppers>
-      </div>
+      </div> */}
       <div className={classes.manager}>
         <Button
           color={window.innerWidth > 959 ? "transparent" : "white"}
@@ -244,7 +255,9 @@ export default function AdminNavbarLinks() {
             </Grow>
           )}
         </Poppers>
+        
       </div>
+      </Box>
     </div>
   );
 }

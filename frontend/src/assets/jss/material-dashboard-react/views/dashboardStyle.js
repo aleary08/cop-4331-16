@@ -4,6 +4,8 @@ import {
   grayColor,
   hexToRgb,
   blackColor,
+  dangerColor,
+  primaryColor,
 } from "../../material-dashboard-react.js";
 
 const dashboardStyle = {
@@ -83,6 +85,27 @@ const dashboardStyle = {
       lineHeight: "1",
     },
   },
+  tableActionButton: {
+    width: "47px",
+    height: "47px",
+    padding: "0",
+  },
+  tableActionButtonIcon: {
+    width: "17px",
+    height: "17px",
+  },
+  edit: {
+    backgroundColor: "transparent",
+    color: primaryColor[0],
+    boxShadow: "none",
+  },
+  close: {
+    backgroundColor: "transparent",
+    color: dangerColor[0],
+    boxShadow: "none",
+    
+  },
+
 };
 
 export default dashboardStyle;

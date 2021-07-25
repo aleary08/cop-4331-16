@@ -25,6 +25,7 @@ const sidebarStyle = (theme) => ({
     zIndex: "1",
     ...boxShadow,
     width: drawerWidth,
+    marginTop: "6px",
     [theme.breakpoints.up("md")]: {
       width: drawerWidth,
       position: "fixed",
@@ -152,9 +153,9 @@ const sidebarStyle = (theme) => ({
     },
   },
   itemLink: {
-    width: "auto",
+    width: "50px",
     transition: "all 300ms linear",
-    margin: "10px 5px 0",
+    margin: "10px 5px 0px",
     borderRadius: "3px",
     position: "relative",
     display: "block",
@@ -169,6 +170,8 @@ const sidebarStyle = (theme) => ({
     lineHeight: "30px",
     float: "left",
     marginRight: "15px",
+    marginTop: "-14px",
+    marginLeft: "-1px",
     textAlign: "center",
     verticalAlign: "middle",
     color: "rgba(" + hexToRgb(whiteColor) + ", 0.8)",
@@ -266,7 +269,7 @@ const sidebarStyle = (theme) => ({
     },
   },
   red: {
-    backgroundColor: dangerColor[0],
+    backgroundColor: grayColor[0],
     boxShadow:
       "0 12px 20px -10px rgba(" +
       hexToRgb(dangerColor[0]) +
@@ -276,7 +279,7 @@ const sidebarStyle = (theme) => ({
       hexToRgb(dangerColor[0]) +
       ",.2)",
     "&:hover,&:focus": {
-      backgroundColor: dangerColor[0],
+      backgroundColor: grayColor[0],
       boxShadow:
         "0 12px 20px -10px rgba(" +
         hexToRgb(dangerColor[0]) +

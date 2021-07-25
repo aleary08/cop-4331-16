@@ -1,5 +1,29 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import GridItem from "./Grid/GridItem.js";
+import GridContainer from "./Grid/GridContainer.js";
+import Table from "./Table/Table.js";
+//import Tasks from "../../components/Tasks/Tasks.js";
+//import CustomTabs from "../../components/CustomTabs/CustomTabs.js";
+//import Danger from "../../components/Typography/Danger.js";
+import Card from "./Card/Card.js";
+import CardHeader from "./Card/CardHeader.js";
+import CardIcon from "./Card/CardIcon.js";
+import CardBody from "./Card/CardBody.js";
+import CardFooter from "./Card/CardFooter.js";
+import { makeStyles } from "@material-ui/core/styles";
+import styles from "../assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import Update from "@material-ui/icons/Update";
+import Search from "@material-ui/icons/Search";
+// core components
+import CustomInput from "./CustomInput/CustomInput.js";
+import Button from "./CustomButtons/Button.js";
+import Box from '@material-ui/core/Box';
+import Edit from "@material-ui/icons/Edit";
+import Close from "@material-ui/icons/Close";
+import Check from "@material-ui/icons/Check";
+import IconButton from "@material-ui/core/IconButton";
+import Tooltip from "@material-ui/core/Tooltip";
 
 function CardUI()
 {
@@ -22,6 +46,53 @@ function CardUI()
     const [message,setMessage] = useState('');
     const [searchResults,setResults] = useState('');
     const [cardList,setCardList] = useState('');
+
+    const useStyles = makeStyles(styles);
+    const classes = useStyles();
+
+    var editButton = <Edit
+    className={
+      classes.tableActionButtonIcon + " " + classes.edit
+    }/>
+
+    var buttons = 
+    <Box>
+        <Tooltip
+            id="tooltip-top"
+            title="Edit"
+            placement="top"
+            classes={{ tooltip: classes.tooltip }}
+        >
+            <IconButton
+                aria-label="Close"
+                className={classes.tableActionButton}
+            >     
+                <Box pr={1}>
+                    <Edit
+                     className={
+                     classes.tableActionButtonIcon + " " + classes.edit
+                    }/>
+                </Box>
+            </IconButton>
+        </Tooltip>
+        <Tooltip
+            id="tooltip-top"
+            title="Delete"
+            placement="top"
+            classes={{ tooltip: classes.tooltip }}
+         >
+            <IconButton>
+             <Box >
+                <Close
+                    className={
+                    classes.tableActionButtonIcon + " " + classes.close
+                    }
+                />
+            </Box>
+            </IconButton>
+        </Tooltip>
+    </Box>
+  
 
     var _ud = localStorage.getItem('user_data');
     var ud = JSON.parse(_ud);
@@ -189,6 +260,67 @@ function CardUI()
     };
 
     return(
+        
+    <GridContainer>
+      <Box  mt = {-5} mb = {-2} pl={2} display= "inline-block">
+      <div >
+        <CustomInput
+          formControlProps={{
+            
+          }}
+          inputProps={{
+            placeholder: "Search ...",
+            inputProps: {
+              "aria-label": "Search",
+            },
+          }}
+        />
+        <Button color="white" aria-label="edit" justIcon round>
+          <Search />
+        </Button>
+      </div>
+
+      </Box>
+            
+            <GridItem xs={12} >
+          
+          <Card>
+            <CardHeader color="warning" stats icon>
+              {/* <CardIcon color="warning">
+                <Icon>Total Assets</Icon>
+              </CardIcon> */}
+              {/* <p className={classes.cardLeft}>Used Space</p>
+              <h3 className={classes.cardTitle}>
+                250 <small>Vehicles</small>
+              </h3> */}
+              {/* <CardUI/>  */}
+           
+
+            </CardHeader>
+            <CardBody><Table
+                tableHeaderColor="black"
+                tableHead={["Filter", "Name", "Brand", "Model", "Category", "S/N", "Location", "Replacement", "Stock", "Edit/Delete"]}
+                tableData={[
+                  ["10:21", "Acura ILX", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                  ["09:12", "Toyota Camry", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                  ["13:21", "Dodge Charger", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10",buttons],
+
+                ]}
+              /></CardBody>
+            <CardFooter stats>
+            <div className={classes.stats}>
+                <Update />
+                Just Updated
+              </div>
+            </CardFooter>
+          </Card>
+        </GridItem>
+        
+
         <div id="cardUIDiv">
         <br />
         <input type="text" id="searchText" placeholder="Card To Search For" 
@@ -228,6 +360,7 @@ function CardUI()
             onClick={addItem}> Add Item </button><br />
         <span id="cardAddResult">{message}</span>
         </div>
+        </GridContainer>
     );
 }
 

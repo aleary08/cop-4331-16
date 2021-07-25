@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
@@ -29,7 +30,19 @@ import CardIcon from "../../components/Card/CardIcon.js";
 import CardBody from "../../components/Card/CardBody.js";
 import CardFooter from "../../components/Card/CardFooter.js";
 import CardUI from '../../components/CardUI';
+import ForgotPassword from '../../components/ForgotPassword';
 import Box from '@material-ui/core/Box';
+
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Hidden from "@material-ui/core/Hidden";
+import Poppers from "@material-ui/core/Popper";
+import Divider from "@material-ui/core/Divider";
+import Button from "../../components/CustomButtons/Button.js";
+import Person from "@material-ui/icons/Person";
 
 import { bugs, website, server } from "../../variables/general.js";
 
@@ -40,16 +53,126 @@ import {
 } from "../../variables/charts.js";
 
 import styles from "../../assets/jss/material-dashboard-react/views/dashboardStyle.js";
+import stylesTwo from "../../assets/jss/material-dashboard-react/components/headerLinksStyle.js";
 
 const useStyles = makeStyles(styles);
+const useStyles2 = makeStyles(stylesTwo);
 
 // this is where we will have to grab values from DB to put on dashboard
 export default function Dashboard() {
   const classes = useStyles();
+  const classesTwo = useStyles2();
+
+  const [openNotification, setOpenNotification] = React.useState(null);
+  const [openProfile, setOpenProfile] = React.useState(null);
+  const handleClickNotification = (event) => {
+    if (openNotification && openNotification.contains(event.target)) {
+      setOpenNotification(null);
+    } else {
+      setOpenNotification(event.currentTarget);
+    }
+  };
+  const handleCloseNotification = () => {
+    setOpenNotification(null);
+  };
+  const handleClickProfile = (event) => {
+    if (openProfile && openProfile.contains(event.target)) {
+      setOpenProfile(null);
+    } else {
+      setOpenProfile(event.currentTarget);
+    }
+  };
+  const handleCloseProfile = () => {
+    setOpenProfile(null);
+  };
   return (
     <div>
-      <h4 className={classes.cardTitle}>CompanyName's Dashboard</h4>
-      <p className={classes.cardCategory}>Asset Labs Powered Inventory System</p>
+      <h4 className={classes.cardTitle}><b>CompanyName's Dashboard</b></h4>
+      
+      <Box marginLeft="93%" marginTop="-25px">
+      {/* <button className={classes.cardTitle} type="button" id="addCardButton" className="buttons" 
+            > Add Item </button><br /> */}
+
+
+
+
+
+        <div className={classesTwo.manager}>
+        <Button
+          color={window.innerWidth > 959 ? "black" : "black"}
+          //justIcon={window.innerWidth > 959}
+          simple={!(window.innerWidth > 959)}
+          aria-owns={openProfile ? "profile-menu-list-grow" : null}
+          aria-haspopup="true"
+          onClick={handleClickProfile}
+          className={classesTwo.buttonLink}
+        >
+          Add Item
+          
+          <Hidden mdUp implementation="css">
+            
+            <p className={classesTwo.linkText}>Profile</p>
+          </Hidden>
+        </Button>
+        <Poppers
+          open={Boolean(openProfile)}
+          anchorEl={openProfile}
+          transition
+          disablePortal
+          className={
+            classNames({ [classesTwo.popperClose]: !openProfile }) +
+            " " +
+            classesTwo.popperNav
+          }
+        >
+          {({ TransitionProps, placement }) => (
+            <Grow
+              {...TransitionProps}
+              id="profile-menu-list-grow"
+              style={{
+                transformOrigin:
+                  placement === "bottom" ? "center top" : "center bottom",
+              }}
+            >
+              <Paper>
+                <ClickAwayListener onClickAway={handleCloseProfile}>
+                  {/* <MenuList role="menu">
+                    <MenuItem
+                      //onClick={goProfile}
+                      className={classesTwo.dropdownItem}
+                    >
+                      Profile
+                    </MenuItem>
+                    <MenuItem
+                      //onClick={doCard}
+                      //className={classes.dropdownItem}
+                    >
+                      Settings
+                    </MenuItem>
+                    <Divider light />
+                    <MenuItem
+                      //onClick={doLogout}
+                      className={classesTwo.dropdownItem}
+                    >
+                      Logout
+                    </MenuItem>
+                  </MenuList> */}
+                  <ForgotPassword />
+                </ClickAwayListener>
+                
+              </Paper>
+            </Grow>
+          )}
+        </Poppers>
+        
+      </div>
+            
+      </Box>
+      <Box marginTop="-35px">
+      <p className={classes.cardCategory}><b>Asset Labs Powered Inventory System</b></p>
+      </Box>
+      
+      
       <GridContainer>
         <GridItem xs={12} sm={8}>
           
@@ -275,7 +398,7 @@ export default function Dashboard() {
                 tabIcon: BugReport,
                 tabContent: (
                   <Tasks
-                    checkedIndexes={[0, 3]}
+                    checkedIndexes={[0, 2]}
                     tasksIndexes={[0, 1, 2, 3]}
                     tasks={bugs}
                   />
@@ -319,7 +442,7 @@ export default function Dashboard() {
 
                 ]}
               />
-              <CardUI/> 
+             
             </CardBody>
           </Card>
         </GridItem>

@@ -22,6 +22,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Spartan', sans-serif;
 }
 
 .App-link {
@@ -40,4 +41,8 @@
 @font-face {
   font-family: League Spartan;
   src: url(./fonts/LeagueSpartan-Bold.otf) format(otf);
+}
+
+h1 {
+  font-family: 'Spartan', sans-serif;
 }

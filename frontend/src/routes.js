@@ -44,13 +44,7 @@ const dashboardRoutes = [
     component: DashboardPage,
     layout: "/admin",
   },
-  {
-    path: "/user-profile",
-    //name: "User Profile",
-    icon: Person,
-    component: UserProfile,
-    layout: "/admin",
-  },
+  
   // {
   //   path: "/inventory-reports",
   //   //name: "Reports",
@@ -63,6 +57,13 @@ const dashboardRoutes = [
     //name: "Messages",
     icon: LibraryBooks,
     component: CardUI,
+    layout: "/admin",
+  },
+  {
+    path: "/user-profile",
+    //name: "User Profile",
+    icon: Person,
+    component: UserProfile,
     layout: "/admin",
   },
   // {
@@ -79,13 +80,13 @@ const dashboardRoutes = [
   //   component: Maps,
   //   layout: "/admin",
   // },
-  {
-    path: "/notifications",
-    //name: "Notifications",
-    icon: Notifications,
-    component: NotificationsPage,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/notifications",
+  //   //name: "Notifications",
+  //   icon: Notifications,
+  //   component: NotificationsPage,
+  //   layout: "/admin",
+  // },
   // {
   //   path: "/asset-labs-support",
   //   //name: "Asset Labs Support",

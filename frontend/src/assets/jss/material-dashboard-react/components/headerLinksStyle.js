@@ -105,15 +105,18 @@ const headerLinksStyle = (theme) => ({
       width: "100%",
     },
     display: "inline-block",
+    
 
   },
   
   AppBar: {
     //minHeight: '100vh',
     backgroundImage: `url(${background})`,
-    //background: 'none',
+    background: 'none',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
+    marginTop: "-25px"
+    
     
     
    
@@ -125,6 +128,13 @@ const headerLinksStyle = (theme) => ({
       margin: "10px 15px 0",
     },
     display: "inline-block",
+  },
+
+  title: {
+    fontSize: "40px",
+    display: "inline-block",
+  
+
   },
 });
 
