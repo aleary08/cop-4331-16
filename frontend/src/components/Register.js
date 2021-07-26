@@ -20,8 +20,8 @@ function Register()
     var Code=0;
   
     const [message,setMessage] = useState('');
-     const doVerify = async event => {
-    var hash = md5( passwordRegister );
+ const doVerify = async event => {
+    var hash = md5( passwordRegister.value);
 //    const Code = Math.floor(Math.random()*90000+10000);
     
     var sendCode = JSON.stringify({ Email:email.value});     
