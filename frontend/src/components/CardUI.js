@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import classNames from "classnames";
 import axios from 'axios';
 import GridItem from "./Grid/GridItem.js";
 import GridContainer from "./Grid/GridContainer.js";
@@ -26,12 +27,22 @@ import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import AddCardPopUp from './AddCardPopUp';
 
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Hidden from "@material-ui/core/Hidden";
+import Poppers from "@material-ui/core/Popper";
+
+
+import stylesTwo from "../assets/jss/material-dashboard-react/components/headerLinksStyle.js";
+
 function CardUI()
 {
 
     var bp = require('./Path.js');
     var storage = require('../tokenStorage.js');
     const jwt = require("jsonwebtoken");
+    
     
     var card = '';
     var search = '';
@@ -49,7 +60,32 @@ function CardUI()
     const [cardList,setCardList] = useState('');
 
     const useStyles = makeStyles(styles);
+    const useStyles2 = makeStyles(stylesTwo);
     const classes = useStyles();
+    const classesTwo = useStyles2();
+    const [openNotification, setOpenNotification] = React.useState(null);
+
+  const [openProfile, setOpenProfile] = React.useState(null);
+  const handleClickNotification = (event) => {
+    if (openNotification && openNotification.contains(event.target)) {
+      setOpenNotification(null);
+    } else {
+      setOpenNotification(event.currentTarget);
+    }
+  };
+  const handleCloseNotification = () => {
+    setOpenNotification(null);
+  };
+  const handleClickProfile = (event) => {
+    if (openProfile && openProfile.contains(event.target)) {
+      setOpenProfile(null);
+    } else {
+      setOpenProfile(event.currentTarget);
+    }
+  };
+  const handleCloseProfile = () => {
+    setOpenProfile(null);
+  };
 
     var editButton = <Edit
     className={
@@ -76,6 +112,7 @@ function CardUI()
                     }/>
                 </Box>
             </IconButton>
+            
         </Tooltip>
         <Tooltip
             id="tooltip-top"
