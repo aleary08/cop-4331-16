@@ -24,7 +24,6 @@ import Close from "@material-ui/icons/Close";
 import Check from "@material-ui/icons/Check";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
-import AddCardPopUp from './AddCardPopUp';
 
 function CardUI()
 {
@@ -67,7 +66,6 @@ function CardUI()
             <IconButton
                 aria-label="Close"
                 className={classes.tableActionButton}
-                            
             >     
                 <Box pr={1}>
                     <Edit
@@ -102,50 +100,50 @@ function CardUI()
     var firstName = ud.firstName;
     var lastName = ud.lastName;
 	
-    const addCard = async event => 
-    {
-	    event.preventDefault();
+    // const addCard = async event => 
+    // {
+	//     event.preventDefault();
         
 
-       var tok = storage.retrieveToken();
-       var obj = {userId:userId,card:card.value,jwtToken:tok};
-       var js = JSON.stringify(obj);
+    //    var tok = storage.retrieveToken();
+    //    var obj = {userId:userId,card:card.value,jwtToken:tok};
+    //    var js = JSON.stringify(obj);
 
-       alert("UserId: "+localStorage.getItem('user_data'));
+    //    alert("UserId: "+localStorage.getItem('user_data'));
 
-        var config = 
-        {
-            method: 'post',
-            url: bp.buildPath('api/addcard'),	
-            headers: 
-            {
-                'Content-Type': 'application/json'
-            },
-            data: js
-        };
+    //     var config = 
+    //     {
+    //         method: 'post',
+    //         url: bp.buildPath('api/addcard'),	
+    //         headers: 
+    //         {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         data: js
+    //     };
     
-        axios(config)
-            .then(function (response) 
-        {
-            var res = response.data;
-            var retTok = res.jwtToken;
+    //     axios(config)
+    //         .then(function (response) 
+    //     {
+    //         var res = response.data;
+    //         var retTok = res.jwtToken;
     
-            if( res.error.length > 0 )
-            {
-                setMessage( "Error:" + res.error );
-            }
-            else
-            {
-                setMessage('Card has been added');
-                storage.storeToken( {accessToken:retTok} );
-            }
-        })
-        .catch(function (error) 
-        {
-            console.log(error);
-        });
+    //         if( res.error.length > 0 )
+    //         {
+    //             setMessage( "Error:" + res.error );
+    //         }
+    //         else
+    //         {
+    //             setMessage('Card has been added');
+    //             storage.storeToken( {accessToken:retTok} );
+    //         }
+    //     })
+    //     .catch(function (error) 
+    //     {
+    //         console.log(error);
+    //     });
 
-	};
+	// };
     const addItem = async event => 
     {
        event.preventDefault();
@@ -211,134 +209,65 @@ function CardUI()
         num++;
     };
 
-    const searchCard = async event => 
-    {
-        event.preventDefault();
+    // const searchCard = async event => 
+    // {
+    //     event.preventDefault();
         		
-        var tok = storage.retrieveToken();
-        var obj = {userId:userId,search:search.value,jwtToken:tok};
-        var js = JSON.stringify(obj);
+    //     var tok = storage.retrieveToken();
+    //     var obj = {userId:userId,search:search.value,jwtToken:tok};
+    //     var js = JSON.stringify(obj);
 
-        var config = 
-        {
-            method: 'post',
-            url: bp.buildPath('api/searchcards'),	
-            headers: 
-            {
-                'Content-Type': 'application/json'
-            },
-            data: js
-        };
+    //     var config = 
+    //     {
+    //         method: 'post',
+    //         url: bp.buildPath('api/searchcards'),	
+    //         headers: 
+    //         {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         data: js
+    //     };
     
-        axios(config)
-            .then(function (response) 
-        {
-            var res = response.data;
-            var retTok = res.jwtToken;
+    //     axios(config)
+    //         .then(function (response) 
+    //     {
+    //         var res = response.data;
+    //         var retTok = res.jwtToken;
     
-            if( res.error.length > 0 )
-            {
-                setMessage( "API Error:" + res.error );
-            }
-            else
-            {
-                var _results = res.results;
-                var resultText = '';
-                for( var i=0; i<_results.length; i++ )
-                {
-                    resultText += _results[i];
-                    if( i < _results.length - 1 )
-                    {
-                        resultText += ', ';
-                    }
-                }
-                setResults('Card(s) have been retrieved');
-                setCardList(resultText);
-                storage.storeToken( {accessToken:retTok} );
-            }
-        })
-        .catch(function (error) 
-        {
-            console.log(error);
-        });
+    //         if( res.error.length > 0 )
+    //         {
+    //             setMessage( "API Error:" + res.error );
+    //         }
+    //         else
+    //         {
+    //             var _results = res.results;
+    //             var resultText = '';
+    //             for( var i=0; i<_results.length; i++ )
+    //             {
+    //                 resultText += _results[i];
+    //                 if( i < _results.length - 1 )
+    //                 {
+    //                     resultText += ', ';
+    //                 }
+    //             }
+    //             setResults('Card(s) have been retrieved');
+    //             setCardList(resultText);
+    //             storage.storeToken( {accessToken:retTok} );
+    //         }
+    //     })
+    //     .catch(function (error) 
+    //     {
+    //         console.log(error);
+    //     });
 
-    };
+    // };
 
     return(
         
     <GridContainer>
       <Box  mt = {-5} mb = {-2} pl={2} display= "inline-block">
       <div >
-        <CustomInput
-          formControlProps={{
-            
-          }}
-          inputProps={{
-            placeholder: "Search ...",
-            inputProps: {
-              "aria-label": "Search",
-            },
-          }}
-        />
-        <Button color="white" aria-label="edit" justIcon round>
-          <Search />
-        </Button>
-      </div>
-
-      </Box>
-            
-            <GridItem xs={12} >
-          
-          <Card>
-            <CardHeader color="warning" stats icon>
-              {/* <CardIcon color="warning">
-                <Icon>Total Assets</Icon>
-              </CardIcon> */}
-              {/* <p className={classes.cardLeft}>Used Space</p>
-              <h3 className={classes.cardTitle}>
-                250 <small>Vehicles</small>
-              </h3> */}
-              {/* <CardUI/>  */}
-           
-
-            </CardHeader>
-            <CardBody><Table
-                tableHeaderColor="black"
-                tableHead={["Filter", "Name", "Brand", "Model", "Category", "S/N", "Location", "Replacement", "Stock", "Edit/Delete"]}
-                tableData={[
-                  ["10:21", "Acura ILX", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
-                  ["09:12", "Toyota Camry", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
-                  ["13:21", "Dodge Charger", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
-                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
-                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
-                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
-                  ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10",buttons],
-
-                ]}
-              /></CardBody>
-            <CardFooter stats>
-            <div className={classes.stats}>
-                <Update />
-                Just Updated
-              </div>
-            </CardFooter>
-          </Card>
-        </GridItem>
         
-
-        <div id="cardUIDiv">
-        <br />
-        <input type="text" id="searchText" placeholder="Card To Search For" 
-            ref={(c) => search = c} />
-        <button type="button" id="searchCardButton" className="buttons" 
-            onClick={searchCard}> Search Card</button><br />
-            
-        <span id="cardSearchResult">{searchResults}</span>
-        <p id="cardList">{cardList}</p><br /><br />
-        <input type="text" id="cardText" placeholder="Card To Add" 
-            ref={(c) => card = c} />
-        <button type="button" id="addCardButton" className="buttons" 
-            onClick={addCard}> Add Card </button><br />
         
         <br /><br />
         
@@ -372,6 +301,7 @@ function CardUI()
             onClick={addItem}> Add Item </button><br />
         <span id="cardAddResult">{message}</span>
         </div>
+        </Box>
         </GridContainer>
     );
 }

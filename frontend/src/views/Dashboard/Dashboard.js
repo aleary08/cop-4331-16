@@ -31,6 +31,7 @@ import CardBody from "../../components/Card/CardBody.js";
 import CardFooter from "../../components/Card/CardFooter.js";
 import CardUI from '../../components/CardUI';
 import ForgotPassword from '../../components/ForgotPassword';
+import AddCardPopUp from '../../components/AddCardPopUp';
 import Box from '@material-ui/core/Box';
 
 import MenuItem from "@material-ui/core/MenuItem";
@@ -86,16 +87,12 @@ export default function Dashboard() {
     setOpenProfile(null);
   };
   return (
-    <div>
+    <div >
       <h4 className={classes.cardTitle}><b>CompanyName's Dashboard</b></h4>
       
       <Box marginLeft="93%" marginTop="-25px">
       {/* <button className={classes.cardTitle} type="button" id="addCardButton" className="buttons" 
             > Add Item </button><br /> */}
-
-
-
-
 
         <div className={classesTwo.manager}>
         <Button
@@ -157,7 +154,7 @@ export default function Dashboard() {
                       Logout
                     </MenuItem>
                   </MenuList> */}
-                  <ForgotPassword />
+                  <AddCardPopUp />
                 </ClickAwayListener>
                 
               </Paper>
