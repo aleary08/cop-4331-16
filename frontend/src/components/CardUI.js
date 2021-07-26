@@ -53,6 +53,9 @@ function CardUI()
     var Replacement='';
     var Location=''; 
     var num = 1;
+
+    var searchNames = [];
+  
     //document.getElementById('addSerialNumber').addEventListener("click",addInput);
 
     const [message,setMessage] = useState('');
@@ -256,22 +259,28 @@ function CardUI()
         var obj = {userId:userId,search:search.value,jwtToken:tok};
         var js = JSON.stringify(obj);
 
+        alert(js);
+
         var config = 
         {
             method: 'post',
-            url: bp.buildPath('api/searchcards'),	
+            url: bp.buildPath('api/searchassets'),	
             headers: 
             {
                 'Content-Type': 'application/json'
             },
             data: js
         };
-    
+        
         axios(config)
             .then(function (response) 
         {
             var res = response.data;
+            
             var retTok = res.jwtToken;
+            
+            
+            
     
             if( res.error.length > 0 )
             {
@@ -280,16 +289,81 @@ function CardUI()
             else
             {
                 var _results = res.results;
+                var thisResult = Object.values(_results[0]);
+                alert(thisResult);
                 var resultText = '';
                 for( var i=0; i<_results.length; i++ )
                 {
-                    resultText += _results[i];
+                    resultText += Object.values(_results[i]);
+
+                    thisResult = Object.values(_results[i]);
+                         var name = thisResult[2];
+                       
+                         searchNames[i] = name;
+                         alert( searchNames[i]);
                     if( i < _results.length - 1 )
                     {
+                        // thisResult = Object.values(_results[i]);
+                        // var name = thisResult[2];
+                        // alert(name);
+                        
                         resultText += ', ';
                     }
                 }
-                setResults('Card(s) have been retrieved');
+                var theCount = ' ';
+                for(var z = 0; z < searchNames.length; z++){
+                    
+
+                
+                setResults(<GridContainer><GridItem xs={12} >
+          
+                    <Card>
+                      <CardHeader color="warning" stats icon>
+                        {/* <CardIcon color="warning">
+                          <Icon>Total Assets</Icon>
+                        </CardIcon> */}
+                        {/* <p className={classes.cardLeft}>Used Space</p>
+                        <h3 className={classes.cardTitle}>
+                          250 <small>Vehicles</small>
+                        </h3> */}
+                        {/* <CardUI/>  */}
+                     
+          
+                      </CardHeader>
+                      
+                      <CardBody>
+                          <Table
+                          tableHeaderColor="black"
+                          tableHead={["Filter", "Name", "Brand", "Model", "Category", "S/N", "Location", "Replacement", "Stock", "Edit/Delete"]}
+                         
+                          tableData = {[
+                            
+                            ["10:21", searchNames[z], "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                            // ["09:12", searchNames[z], "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                            // ["13:21", "Dodge Charger", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                            // ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                            // ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                            // ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                            // ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10",buttons],
+          
+                          ]}
+                          
+                          />
+                        </CardBody>
+                      <CardFooter stats>
+                      <div className={classes.stats}>
+                          <Update />
+                          Just Updated
+                        </div>
+                      </CardFooter>
+                    </Card>
+                  </GridItem></GridContainer>);
+
+                    
+                  }
+
+
+
                 setCardList(resultText);
                 storage.storeToken( {accessToken:retTok} );
             }
@@ -343,7 +417,7 @@ function CardUI()
                 tableHeaderColor="black"
                 tableHead={["Filter", "Name", "Brand", "Model", "Category", "S/N", "Location", "Replacement", "Stock", "Edit/Delete"]}
                 tableData={[
-                  ["10:21", "Acura ILX", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
+                  ["10:21", searchNames[0], "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
                   ["09:12", "Toyota Camry", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
                   ["13:21", "Dodge Charger", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
                   ["14:20", "Honda Civic", "No", "No", "Car", "12345", "Orlando", "40", "10", buttons],
@@ -367,6 +441,7 @@ function CardUI()
         <br />
         <input type="text" id="searchText" placeholder="Card To Search For" 
             ref={(c) => search = c} />
+            
         <button type="button" id="searchCardButton" className="buttons" 
             onClick={searchCard}> Search Card</button><br />
             

@@ -25,7 +25,7 @@ import Check from "@material-ui/icons/Check";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 
-function CardUI()
+function AddCardPopUp()
 {
 
     var bp = require('./Path.js');
@@ -265,7 +265,8 @@ function CardUI()
     return(
         
     <GridContainer>
-      <Box  mt = {-5} mb = {-2} pl={2} display= "inline-block">
+        <GridItem>
+        <Box  mt = {-5} mb = {-2} pl={2} display= "inline-block">
       <div >
         
         
@@ -302,8 +303,10 @@ function CardUI()
         <span id="cardAddResult">{message}</span>
         </div>
         </Box>
+        </GridItem>
+      
         </GridContainer>
     );
 }
 
-export default CardUI;
+export default AddCardPopUp;
